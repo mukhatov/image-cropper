@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CropperLayout">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="overlayColor" format="color"/>
+        <attr name="overlayAlpha" format="integer"/>
+        <attr name="padding" format="dimension"/>
+        <attr name="maxScale" format="float"/>
+        <attr name="mode" format="enum">
+            <enum name="circle" value="0"/>
+            <enum name="square" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

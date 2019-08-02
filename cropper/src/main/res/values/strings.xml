@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cropper</string>
+    <string name="title_move_and_scale">Move and Scale</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_choose_image">Choose Image</string>
+    <string name="action_take_photo">Take Photo</string>
+    <string name="action_done">Done</string>
+</resources>
