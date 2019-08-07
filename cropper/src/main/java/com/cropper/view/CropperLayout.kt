@@ -36,7 +36,13 @@ class CropperLayout @JvmOverloads constructor(
         cropperImageView.horizontalPadding = padding
         cropperImageView.maxScale = typedArray.getFloat(R.styleable.CropperLayout_maxScale, 4f)
         overlayView.overlayColor = typedArray.getColor(R.styleable.CropperLayout_overlayColor, Color.BLACK)
-        overlayView.alpha = typedArray.getInt(R.styleable.CropperLayout_overlayAlpha, 140)
+        overlayView.overlayAlpha = typedArray.getInt(R.styleable.CropperLayout_overlayAlpha, 140)
+        overlayView.borderColor = typedArray.getColor(R.styleable.CropperLayout_borderColor, Color.WHITE)
+        overlayView.borderWidth = typedArray.getDimension(
+            R.styleable.CropperLayout_borderWidth,
+            resources.getDimension(R.dimen.default_border_width)
+        )
+        overlayView.borderEnable = typedArray.getBoolean(R.styleable.CropperLayout_borderEnable, false)
         overlayView.mode = typedArray.getInt(R.styleable.CropperLayout_mode, 0)
         overlayView.padding = padding
         typedArray.recycle()
@@ -59,7 +65,7 @@ class CropperLayout @JvmOverloads constructor(
         ).apply {
             writeBitmap(
                 crop(),
-                Bitmap.CompressFormat.PNG,
+                Bitmap.CompressFormat.JPEG,
                 100
             )
         }

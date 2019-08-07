@@ -19,7 +19,10 @@ class OverlayView @JvmOverloads constructor(
     private var mBitmap: Bitmap? = null
 
     var overlayColor: Int = Color.BLACK
-    var alpha: Int = 140
+    var overlayAlpha: Int = 140
+    var borderColor: Int = Color.WHITE
+    var borderWidth: Float = 5f
+    var borderEnable: Boolean = false
     var mode: Int = 0
     var padding: Int = 20
 
@@ -40,9 +43,16 @@ class OverlayView @JvmOverloads constructor(
 
             val outerRectangle = RectF(0f, 0f, width.toFloat(), height.toFloat())
 
-            val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-            paint.color = overlayColor
-            paint.alpha = alpha
+            val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                color = overlayColor
+                alpha = overlayAlpha
+            }
+            val borderPaint = Paint().apply {
+                style = Paint.Style.STROKE
+                color = borderColor
+                strokeWidth = borderWidth
+            }
+
             osCanvas.drawRect(outerRectangle, paint)
 
             paint.color = Color.TRANSPARENT
@@ -51,11 +61,17 @@ class OverlayView @JvmOverloads constructor(
             val centerY = height / 2f
             if (mode == 0) {
                 osCanvas.drawCircle(centerX, centerY, (width - 2 * padding) / 2f, paint)
+                if (borderEnable) {
+                    osCanvas.drawCircle(centerX, centerY, (width - 2 * padding) / 2f, borderPaint)
+                }
             } else {
                 val mWidth = (width - 2 * padding).toFloat()
                 val rect =
                     Rect(padding, (centerY - mWidth / 2).toInt(), width - padding, (centerY + mWidth / 2).toInt())
                 osCanvas.drawRect(rect, paint)
+                if (borderEnable) {
+                    osCanvas.drawRect(rect, borderPaint)
+                }
             }
         }
     }

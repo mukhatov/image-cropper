@@ -4,8 +4,11 @@
         <attr name="backgroundColor" format="color"/>
         <attr name="overlayColor" format="color"/>
         <attr name="overlayAlpha" format="integer"/>
+        <attr name="borderColor" format="color"/>
+        <attr name="borderWidth" format="dimension"/>
         <attr name="padding" format="dimension"/>
         <attr name="maxScale" format="float"/>
+        <attr name="borderEnable" format="boolean"/>
         <attr name="mode" format="enum">
             <enum name="circle" value="0"/>
             <enum name="square" value="1"/>
