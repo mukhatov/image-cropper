@@ -8,11 +8,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.cropper.R
-import com.cropper.common.writeBitmap
+import com.cropper.common.getCroppedFile
 import kotlinx.android.synthetic.main.view_cropper.view.*
-import java.io.File
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class CropperLayout @JvmOverloads constructor(
@@ -54,19 +51,5 @@ class CropperLayout @JvmOverloads constructor(
     fun crop(): Bitmap =
         cropperImageView.crop()
 
-    fun getCroppedImage(): File =
-        File.createTempFile(
-            "crop_${SimpleDateFormat(
-                "yyyyMMdd_HHmmss",
-                Locale.US
-            ).format(Date())}_",
-            ".jpg",
-            context.cacheDir
-        ).apply {
-            writeBitmap(
-                crop(),
-                Bitmap.CompressFormat.JPEG,
-                100
-            )
-        }
+    fun getCroppedFile() = crop().getCroppedFile(context)
 }
