@@ -62,7 +62,7 @@ class CropperActivity : AppCompatActivity() {
             }
             R.id.action_done -> {
                 val intent = Intent()
-                intent.data = Uri.parse(cropperLayout.getCroppedImage().absolutePath)
+                intent.data = Uri.parse(cropperLayout.getCroppedFile().absolutePath)
                 setResult(RESULT_OK, intent)
                 finish()
                 true
