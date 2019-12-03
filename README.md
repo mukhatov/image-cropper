@@ -61,7 +61,7 @@ Add permissions to manifest
 
  Get cropped image
  ```kotlin
-    cropperLayout.getCroppedImage()
+    cropperLayout.getCroppedFile()
     // or
     cropperLayout.crop()
  ```
