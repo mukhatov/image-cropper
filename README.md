@@ -11,7 +11,7 @@
 	}
   
  dependencies {
-     implementation 'com.github.mukhatov:image-cropper:1.0.1'
+     implementation 'com.github.mukhatov:image-cropper:1.0.2'
  }
  ```
 
@@ -84,3 +84,7 @@ Add permissions to manifest
         </attr>
     </declare-styleable>
  ```
+
+ **Screenshot**
+
+<img src="screenshot.png" width="400" height="822" />
